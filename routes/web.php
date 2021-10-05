@@ -1,5 +1,5 @@
 <?php
-
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,5 +45,16 @@ Route::get('/hitung-luas-segitiga/{alas}/{tinggi}', function ($alas,$tinggi) {
     return 'hasil luas segitiga :' .($alas * $tinggi) * 0.5 ;
 });
 
-
+//route group
+Route::group(['prefix' => 'jurusan'], function () {
+    Route ::get('/' ,function (){
+        return 'berhasil' ;
+    });
+    Route ::get('/kelas/{namakelas}' ,function ($namakelas){
+        return $namakelas ;
+    });
+    Route ::get('/walikelas/{nama}' ,function ($nama){
+        return $nama ;
+    });
+});
 

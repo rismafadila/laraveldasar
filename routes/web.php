@@ -1,6 +1,10 @@
 <?php
+use Illuminate\Http\Controllers\DataSiswaController;
+use Illuminate\Http\Controllers\UserController;
+
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,4 +61,9 @@ Route::group(['prefix' => 'jurusan'], function () {
         return $nama ;
     });
 });
+//membuat route controller
+Route :: get('data-siswa' ,[DataSiswaController::class,'datasiswa']);
+Route :: get('data-siswi' ,[DataSiswaController::class,'datasiswi']);
+Route :: get('nama/{nama?}' ,[DataSiswaController::class,'nama']);
 
+Route::resource('user',UseController::class);

@@ -67,3 +67,11 @@ Route :: get('data-siswi' ,[DataSiswaController::class,'datasiswi']);
 Route :: get('nama/{nama?}' ,[DataSiswaController::class,'nama']);
 
 Route::resource('user',UseController::class);
+
+Route::get('profile',function(){
+   return view('profile');
+});
+
+Route::get('detail/{nama}',function($nama){
+    return view('detail',['nama' => $nama]);
+});
